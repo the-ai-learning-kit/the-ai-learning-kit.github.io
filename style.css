@@ -20,10 +20,10 @@
     --topic-4: #60c4e1;
     --root: 22px;
     --rounded: 2rem;
+    --header: 7rem;
 }
 
-
-body {
+html {
     margin: 0;
     padding: 1rem;
     font-family: Labil;
@@ -32,13 +32,15 @@ body {
     font-size: var(--root);
 }
 
+body {
+    font-size: max(var(--root), 20px);
+    margin: 0;
+}
 
 a {
     text-decoration: none;
     color: black;
 }
-
-
 
 ul,
 ul li {
@@ -51,16 +53,18 @@ ul li {
 h1, h2, h3, h4 {
     margin: 0;
     padding: 0;
-    letter-spacing: -0.06em;    
 }
-
-
 
 p:first-child {
     margin-top: 0;
 }
+
 p:last-child{
     margin-bottom: 0;
+}
+
+header {
+    height: var(--header);
 }
 
 .bubble_h1 {
@@ -70,13 +74,19 @@ p:last-child{
     background-color: var(--primary);
     border-radius: 1000px;
     font-weight: 700;
-    font-size: 2rem;
-    letter-spacing: -0.05rem;
+    font-size: min(2.25rem, 4vw);
+    letter-spacing: -0.03rem;
     line-height: 0.85;
     margin-bottom: 1rem;
     text-align: center;
     max-width: 100%;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
 
 .bubble_h2 {
     position: sticky;
@@ -93,13 +103,12 @@ p:last-child{
 }
 
 .bubble_h3 {
-    color: white;
     background-color: var(--primary);
     display: block;
     border-radius: 1000px;
     padding: 1rem 1.5em;
     font-weight: 700;
-    font-size: 1.7rem;
+    font-size: 1.25rem;
     letter-spacing: -0.01rem;
     line-height: 1;
     margin-bottom: 0.5rem;
@@ -108,41 +117,48 @@ p:last-child{
     width: fit-content;
     overflow: hidden;
     display: flex;
+}
 
+
+
+main {
+    display: flex;
+}
+
+aside {
+    width: 25%;
 }
 
 nav {
-    margin-right: 1rem;
-    width: 30%;
     position: sticky;
-    top: 15.2rem;
+    top: calc(var(--header) + 5rem);
 }
 
-main { display: flex; align-items: start;}
+nav a {
+    margin-right: 0.25rem;
+}
 
 section {
-    max-width: 800px;
+    width: 50%;
     background-color: var(--primary-light);
     padding: 1rem;
+    margin: 0 1rem;
     border-radius: var(--rounded);
 }
 
-img {
+.section__img {
     border-radius: calc(var(--rounded)*0.7);
     max-width: 100%;
 }
 
-.links__item {
-    display: inline;
-}
 
 .links__item a {
-    border: 2px dotted var(--primary);
+    border: 0.25rem dotted var(--primary);
     padding: 0.5rem 1.25rem;
     border-radius: 1000px;
     width: fit-content;
     display: inline-block;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     transition: background-color 200ms linear;
 }
 
@@ -155,26 +171,25 @@ img {
     align-items: center;
 }
 
-.subpage__logo {
-    margin-right: 1rem;
-    font-size: 1.7rem;
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-top: -2.5rem;
-    margin-bottom: -2.5rem;
-    flex-shrink: 0;
-}
 
-.subpage__arrow {
-    width: 10rem;
+.subpage__backlink{
+    width: calc(var(--header) + 4rem);
+    height: calc(var(--header) + 3rem);
     margin-left: -2rem;
+    display: block;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: end;
+    margin-right: 0.5rem;
+
 }
 
-.subpage__arrow img {
-    width: 100%;
-    max-height: 100%;
+.subpage__backlink img {
+    width: calc(var(--header) + 4rem);
+    height: calc(var(--header) + 3rem);
+    width: fit-content;
 }
+
 
 .subpage .bubble_h3 {
     padding-left: 5rem;
@@ -187,10 +202,78 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 4rem;
-    height: 4rem;
+    width: 3.45rem;
+    height: 3.45rem;
     border-radius: 100%;
     position: absolute;
     left: 0;
     top: 0;
+}
+
+.stations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stations__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 1100px) {
+    :root {
+        --root: 18px;
+    }
+
+    main { display: block;}
+    aside {
+        width: 100%;
+    }
+    nav {
+       width: 100%;
+       position: static;
+       display: flex;
+       flex-wrap: wrap;
+    }
+    nav a {
+    }
+
+    section {
+        width: auto;
+        margin-bottom: 1rem;
+        margin-left: 0;
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .menu > a {
+        max-width: 30%;
+        flex-grow: 1;
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 800px) {
+    :root {
+        --root: 16px;
+        --header: 6.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    :root {
+        --root: 12px;
+        --header: 6rem;
+    }
 }

@@ -246,6 +246,7 @@ section {
 
     .subpage .bubble_h1 {
         padding: 1rem 2rem;    
+        padding-left: 3rem;
     }
 
     main { display: block;}

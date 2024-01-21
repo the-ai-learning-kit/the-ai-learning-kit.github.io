@@ -69,13 +69,13 @@ header {
 
 .bubble_h1 {
     position: sticky;
-    padding: 1rem 5rem;
+    padding: 1rem 4rem;
     top: 0.75rem;
     height: var(--header);
     background-color: var(--primary);
     border-radius: 1000px;
     font-weight: 700;
-    font-size: min(2rem, 4vw);
+    font-size: min(1.9rem, 4vw);
     letter-spacing: -0.03rem;
     line-height: 0.825;
     margin-bottom: 1rem;
@@ -150,6 +150,10 @@ section {
     max-width: 100%;
 }
 
+.subpage .bubble_h1 {
+    font-size: min(1.5rem, 3vw);
+
+}
 
 .links__item a {
     border: 0.25rem dotted var(--primary);
@@ -191,6 +195,7 @@ section {
     height: calc(var(--header) + 3rem);
     width: fit-content;
 }
+
 
 
 .subpage .bubble_h3 {
@@ -238,6 +243,11 @@ section {
         --root: 18px;
     }
 
+
+    .subpage .bubble_h1 {
+        padding: 1rem 2rem;    
+    }
+
     main { display: block;}
     aside {
         width: 100%;
@@ -280,13 +290,14 @@ section {
 @media (max-width: 800px) {
     :root {
         --root: 16px;
-        --header: 6.5rem;
     }
+
+    
 }
 
 @media (max-width: 500px) {
     :root {
-        --root: 12px;
-        --header: 6rem;
+        --root: 11px;
+        --header: 6.5rem;
     }
 }
